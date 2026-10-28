@@ -7,7 +7,15 @@ function propogateResult(arr) {
   resultContainer.appendChild(para);
 }
 
-const promiseOne = function () {
+const promiseOne = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(arr);
+    },3000);
+  });
+};
+
+const promiseTwo = function () {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       resolve((arr = arr.filter((element) => element % 2 == 0)));
@@ -15,21 +23,26 @@ const promiseOne = function () {
   });
 };
 
-const promiseTwo = () => {
+const promiseThree = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(arr.map((element) => element * 2));
-    }, 2000);
+    }, 3000);
   });
 };
 
 promiseOne()
   .then((data) => {
     // console.log(data);
-    propogateResult(data);
+    // propogateResult(data);
     return promiseTwo();
   })
   .then((data) => {
+    console.log(data);
     propogateResult(data);
-    // console.log(data);
+    return promiseThree();
+  })
+  .then((data) => {
+    propogateResult(data);
+    console.log(data);
   });
