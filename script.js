@@ -13,7 +13,7 @@ const promiseOne = function () {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       resolve((arr = arr.filter((element) => element % 2 == 0)));
-    }, 1000);
+    }, 3000);
   });
 };
 
@@ -26,11 +26,11 @@ const promiseTwo = () => {
 };
 
 promiseOne().then((data)=>{
-  console.log(data);
+  // console.log(data);
   propogateResult(data);
   return promiseTwo();
 }).then((data)=>{
   propogateResult(data);
-  console.log(data);
+  // console.log(data);
 
 });
