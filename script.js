@@ -11,7 +11,7 @@ const promiseOne = function () {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       resolve((arr = arr.filter((element) => element % 2 == 0)));
-    }, 3000);
+    }, 1000);
   });
 };
 
@@ -19,7 +19,7 @@ const promiseTwo = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(arr.map((element) => element * 2));
-    }, 3000);
+    }, 2000);
   });
 };
 
