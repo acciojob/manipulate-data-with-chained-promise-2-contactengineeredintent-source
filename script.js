@@ -1,4 +1,3 @@
-//your JS code here. If required.
 let arr = [1, 2, 3, 4];
 let resultContainer = document.querySelector("#output");
 
@@ -10,9 +9,7 @@ function propogateResult(arr) {
 
 const promiseOne = () => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(arr);
-    }, 3000);
+    resolve(arr);
   });
 };
 
@@ -34,8 +31,8 @@ const promiseThree = () => {
 
 promiseOne()
   .then((data) => {
-    console.log(data);
-    propogateResult(data);
+    // console.log(data);
+    // propogateResult(data);
     return promiseTwo();
   })
   .then((data) => {
